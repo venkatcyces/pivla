@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pivla – Powering Prevailing Wage & Apprenticeship Compliance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d7a4f;
+    --green-light: #3a9963;
+    --green-pale: #e8f5ee;
+    --accent: #a6d71c;
+    --dark: #0d1a12;
+    --dark-mid: #142019;
+    --cream: #f6f4ef;
+    --text-body: #2c3e35;
+    --text-muted: #6b8070;
+    --border: rgba(45,122,79,0.15);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-body); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    background: rgba(246,244,239,0.88); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-weight: 800; font-size: 1.5rem; color: var(--green); letter-spacing: -0.03em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-logo-mark { width: 32px; height: 32px; background: var(--green); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-body); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+  .nav-links a:hover, .nav-links a.active { color: var(--green); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-cta { background: var(--green); color: white !important; padding: 10px 22px; border-radius: 6px; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.15s !important; }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--green-light) !important; transform: translateY(-1px); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding: 140px 80px 100px;
+    background: var(--dark); position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 80% at 100% 50%, rgba(45,122,79,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 40% at 10% 80%, rgba(166,215,28,0.05) 0%, transparent 60%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+    opacity: 0.35;
+  }
+  .page-hero-left { position: relative; z-index: 1; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+  .page-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
+  .page-h1 { font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 800; letter-spacing: -0.04em; color: white; line-height: 1.08; margin-bottom: 20px; animation: fadeUp 0.6s ease both; }
+  .page-h1 em { font-style: normal; color: var(--accent); }
+  .page-sub { font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 40px; animation: fadeUp 0.6s 0.1s ease both; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--green); color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 14px 28px; border-radius: 8px; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(45,122,79,0.35); animation: fadeUp 0.6s 0.2s ease both; }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45,122,79,0.45); }
+  .btn-primary svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2; }
+
+  /* WHO PILL STRIP */
+  .page-hero-right { position: relative; z-index: 1; animation: fadeUp 0.7s 0.25s ease both; }
+  .who-pills { display: flex; flex-direction: column; gap: 12px; }
+  .who-pill {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .who-pill:hover { border-color: rgba(166,215,28,0.35); background: rgba(166,215,28,0.04); }
+  .who-pill-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(166,215,28,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .who-pill-icon svg { width: 18px; height: 18px; }
+  .who-pill-name { font-size: 0.95rem; font-weight: 600; color: white; }
+
+  /* SECTION SHARED */
+  .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--green); border-radius: 2px; }
+  .section-h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); line-height: 1.1; }
+  .section-lead { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; max-width: 560px; margin-top: 12px; }
+
+  /* INDUSTRIES */
+  .industries { padding: 100px 80px; background: var(--cream); }
+  .industries-head { text-align: center; margin-bottom: 72px; }
+  .industries-head .section-eyebrow { justify-content: center; }
+  .industries-head .section-eyebrow::before { display: none; }
+  .industries-head .section-lead { margin: 14px auto 0; }
+
+  .industry-tabs { display: flex; gap: 0; background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 40px; }
+  .tab-btn {
+    flex: 1; padding: 16px 12px; font-size: 0.875rem; font-weight: 500;
+    color: var(--text-muted); background: transparent; border: none; cursor: pointer;
+    transition: color 0.2s, background 0.2s; border-right: 1px solid var(--border);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn:last-child { border-right: none; }
+  .tab-btn.active { background: var(--green); color: white; }
+  .tab-btn:hover:not(.active) { color: var(--green); background: var(--green-pale); }
+
+  .industry-panels {}
+  .industry-panel { display: none; }
+  .industry-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .panel-left {}
+  .panel-heading { font-size: 1.4rem; font-weight: 700; color: var(--dark); letter-spacing: -0.02em; margin-bottom: 24px; }
+  .panel-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .panel-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; font-weight: 300; color: var(--text-muted); line-height: 1.55; }
+  .panel-features li::before { content: ''; width: 20px; height: 20px; border-radius: 6px; background: var(--green-pale); flex-shrink: 0; margin-top: 1px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%232d7a4f' stroke-width='2' stroke-linecap='round'%3E%3Cpolyline points='4 10 8 14 16 6'/%3E%3C/svg%3E"); background-size: 14px; background-repeat: no-repeat; background-position: center; }
+
+  .panel-right {}
+  .panel-stat-card {
+    background: var(--dark); border-radius: 16px; padding: 36px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .panel-stat-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+  .panel-stat-val { font-size: 2.5rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+  .panel-stat-desc { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.5; margin-bottom: 24px; }
+  .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .panel-tag { font-size: 0.75rem; font-weight: 500; background: rgba(166,215,28,0.1); color: var(--accent); border: 1px solid rgba(166,215,28,0.2); border-radius: 100px; padding: 4px 12px; }
+
+  /* PERSONALIZED CTA */
+  .personalized {
+    padding: 80px;
+    background: var(--dark); position: relative; overflow: hidden;
+  }
+  .personalized-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(45,122,79,0.14) 0%, transparent 60%); }
+  .personalized-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
+  }
+  .personalized-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .personalized-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
+  .personalized-h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; color: white; line-height: 1.1; margin-bottom: 12px; }
+  .personalized-desc { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.6; max-width: 560px; }
+  .btn-accent { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 16px 32px; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; white-space: nowrap; }
+  .btn-accent:hover { opacity: 0.9; transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--dark); padding: 64px 80px 40px; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+  .footer-logo { font-weight: 800; font-size: 1.4rem; color: white; letter-spacing: -0.03em; display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+  .footer-tagline { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 240px; }
+  .footer-col-title { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 32px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,0.3); }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--accent); }
+
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+    .page-hero { grid-template-columns: 1fr; padding: 120px 40px 72px; }
+    .page-hero-right { display: none; }
+    .industries { padding: 72px 40px; }
+    .industry-panel.active { grid-template-columns: 1fr; }
+    .personalized { padding: 56px 40px; }
+    .personalized-inner { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 40px 32px; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 110px 24px 56px; }
+    .industries { padding: 64px 24px; }
+    .industry-tabs { flex-wrap: wrap; }
+    .tab-btn { flex: none; width: 50%; }
+    .personalized { padding: 48px 24px; }
+    footer { padding: 40px 24px 28px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark"><svg viewBox="0 0 18 18" fill="white"><path d="M9 1L2 5v8l7 4 7-4V5L9 1z" opacity="0.9"/><path d="M9 5L5 7.5v5L9 15l4-2.5v-5L9 5z"/></svg></span>
+    Pivla
+  </a>
+  <ul class="nav-links">
+    <li><a href="pivla-platform.html">Platform</a></li>
+    <li><a href="pivla-solution.html" class="active">Solution</a></li>
+    <li><a href="pivla-about.html">Company</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="https://meetings.hubspot.com/nigel-coelho/explore-pivla" class="nav-cta">Talk to an Expert</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="page-hero-left">
+    <p class="page-eyebrow">The Solution</p>
+    <h1 class="page-h1">The Only Compliance Solution<br>Your Business <em>Needs.</em></h1>
+    <p class="page-sub">Effortlessly manage prevailing wage & apprenticeship tracking. Experience seamless compliance with Pivla — built for every industry that touches government-funded work.</p>
+    <a href="https://meetings.hubspot.com/nigel-coelho/explore-pivla" class="btn-primary">
+      Book an Expert
+      <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="page-hero-right">
+    <div class="who-pills">
+      <div class="who-pill">
+        <div class="who-pill-icon"><svg viewBox="0 0 18 18" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="8" width="14" height="9" rx="1"/><path d="M6 8V5a3 3 0 016 0v3"/></svg></div>
+        <div class="who-pill-name">Construction</div>
+      </div>
+      <div class="who-pill">
+        <div class="who-pill-icon"><svg viewBox="0 0 18 18" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="9" r="7"/><path d="M9 4v5l3 3"/></svg></div>
+        <div class="who-pill-name">Energy</div>
+      </div>
+      <div class="who-pill">
+        <div class="who-pill-icon"><svg viewBox="0 0 18 18" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><path d="M3 14V7l6-4 6 4v7"/><rect x="6" y="10" width="6" height="4"/></svg></div>
+        <div class="who-pill-name">Manufacturing</div>
+      </div>
+      <div class="who-pill">
+        <div class="who-pill-icon"><svg viewBox="0 0 18 18" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><path d="M2 14h14M4 14V8l5-5 5 5v6"/></svg></div>
+        <div class="who-pill-name">Transportation & Logistics</div>
+      </div>
+      <div class="who-pill">
+        <div class="who-pill-icon"><svg viewBox="0 0 18 18" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M6 9h6M9 6v6"/></svg></div>
+        <div class="who-pill-name">Professional Services</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+  <div class="industries-head">
+    <p class="section-eyebrow">Who Needs Pivla?</p>
+    <h2 class="section-h2">Built for every industry that touches compliance</h2>
+    <p class="section-lead">From solar farms to federal buildings — Pivla adapts to the nuances of your sector.</p>
+  </div>
+
+  <div class="industry-tabs">
+    <button class="tab-btn active" onclick="showTab('construction', this)">Construction</button>
+    <button class="tab-btn" onclick="showTab('energy', this)">Energy</button>
+    <button class="tab-btn" onclick="showTab('manufacturing', this)">Manufacturing</button>
+    <button class="tab-btn" onclick="showTab('transport', this)">Transportation</button>
+    <button class="tab-btn" onclick="showTab('professional', this)">Professional Services</button>
+  </div>
+
+  <div class="industry-panels">
+    <div class="industry-panel active" id="panel-construction">
+      <div class="panel-left">
+        <div class="panel-heading">Construction Compliance, Simplified</div>
+        <ul class="panel-features">
+          <li>Streamline compliance with Prevailing Wage & Apprenticeship (PW&A) requirements</li>
+          <li>Automated certified payroll reporting and wage determinations</li>
+          <li>Maximize Inflation Reduction Act (IRA) tax credits for energy-efficient projects</li>
+          <li>Ensure federal project bidding eligibility</li>
+          <li>Access state-level funding incentives with confidence</li>
+        </ul>
+      </div>
+      <div class="panel-right">
+        <div class="panel-stat-card">
+          <div class="panel-stat-label">Key Benefit</div>
+          <div class="panel-stat-val">30%</div>
+          <div class="panel-stat-desc">Faster certified payroll processing — more time building, less time buried in compliance paperwork.</div>
+          <div class="panel-tags"><span class="panel-tag">Davis-Bacon</span><span class="panel-tag">IRA Credits</span><span class="panel-tag">PW&A</span><span class="panel-tag">Certified Payroll</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="industry-panel" id="panel-energy">
+      <div class="panel-left">
+        <div class="panel-heading">Power Your Energy Projects with Confidence</div>
+        <ul class="panel-features">
+          <li>Simplify Section 179D deduction claims for energy efficiency upgrades</li>
+          <li>Track and manage compliance for renewable energy projects</li>
+          <li>Automate documentation and filing processes to reduce audit risks</li>
+          <li>Maximize IRA tax credits for solar, wind, and other green projects</li>
+        </ul>
+      </div>
+      <div class="panel-right">
+        <div class="panel-stat-card">
+          <div class="panel-stat-label">Key Benefit</div>
+          <div class="panel-stat-val">Zero</div>
+          <div class="panel-stat-desc">Audit penalties for energy firms using Pivla's automated documentation trail and IRA credit tracking.</div>
+          <div class="panel-tags"><span class="panel-tag">Section 179D</span><span class="panel-tag">IRA Credits</span><span class="panel-tag">Solar & Wind</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="industry-panel" id="panel-manufacturing">
+      <div class="panel-left">
+        <div class="panel-heading">Manufacturing Compliance at Scale</div>
+        <ul class="panel-features">
+          <li>Ensure compliance with labor standards and prevailing wage requirements</li>
+          <li>Integrate payroll data for prime contractors and subcontractors to simplify reporting</li>
+          <li>Optimize tax benefits through automated compliance tracking</li>
+          <li>Access state-level incentives for sustainable manufacturing practices</li>
+        </ul>
+      </div>
+      <div class="panel-right">
+        <div class="panel-stat-card">
+          <div class="panel-stat-label">Key Benefit</div>
+          <div class="panel-stat-val">All 50</div>
+          <div class="panel-stat-desc">States covered with geo-specific compliance modules that update automatically as regulations change.</div>
+          <div class="panel-tags"><span class="panel-tag">Labor Standards</span><span class="panel-tag">Multi-Contractor</span><span class="panel-tag">Tax Optimization</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="industry-panel" id="panel-transport">
+      <div class="panel-left">
+        <div class="panel-heading">Keep Infrastructure Projects Moving</div>
+        <ul class="panel-features">
+          <li>Navigate compliance for IIJA (Infrastructure Investment & Jobs Act) mandates</li>
+          <li>Track apprentice hours and wages for large-scale transportation initiatives</li>
+          <li>Leverage government incentives for green logistics solutions</li>
+          <li>Simplify certified payroll reporting for federally funded infrastructure projects</li>
+        </ul>
+      </div>
+      <div class="panel-right">
+        <div class="panel-stat-card">
+          <div class="panel-stat-label">Key Benefit</div>
+          <div class="panel-stat-val">IIJA</div>
+          <div class="panel-stat-desc">Ready compliance tools purpose-built for the Infrastructure Investment & Jobs Act's demanding reporting requirements.</div>
+          <div class="panel-tags"><span class="panel-tag">IIJA</span><span class="panel-tag">Apprentice Tracking</span><span class="panel-tag">Federal Projects</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="industry-panel" id="panel-professional">
+      <div class="panel-left">
+        <div class="panel-heading">Add Compliance as a Service</div>
+        <ul class="panel-features">
+          <li>Offer PW&A compliance services to clients to gain a competitive edge</li>
+          <li>Automate compliance tracking to minimize risks and errors</li>
+          <li>Create additional revenue streams through enhanced service offerings</li>
+          <li>Provide strategic guidance on IRA tax credits and prevailing wage compliance</li>
+        </ul>
+      </div>
+      <div class="panel-right">
+        <div class="panel-stat-card">
+          <div class="panel-stat-label">Key Benefit</div>
+          <div class="panel-stat-val">+Revenue</div>
+          <div class="panel-stat-desc">CPA firms and consultancies use Pivla to offer compliance as a high-margin service to their construction and energy clients.</div>
+          <div class="panel-tags"><span class="panel-tag">CPA Firms</span><span class="panel-tag">Advisory</span><span class="panel-tag">IRA Credits</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONALIZED CTA -->
+<div class="personalized">
+  <div class="personalized-bg"></div>
+  <div class="personalized-inner">
+    <div>
+      <p class="personalized-eyebrow">Personalized Solution</p>
+      <h2 class="personalized-h2">Need a solution tailored to your business?</h2>
+      <p class="personalized-desc">Unlock the full power of Pivla with a personalized walkthrough. Our PW&A experts will map the platform to your specific compliance challenges.</p>
+    </div>
+    <a href="https://meetings.hubspot.com/nigel-coelho/explore-pivla" class="btn-accent">
+      Talk to a PW&A Expert
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">
+        <span class="nav-logo-mark" style="width:28px;height:28px;"><svg viewBox="0 0 18 18" width="16" height="16" fill="white"><path d="M9 1L2 5v8l7 4 7-4V5L9 1z" opacity="0.9"/><path d="M9 5L5 7.5v5L9 15l4-2.5v-5L9 5z"/></svg></span>
+        Pivla
+      </a>
+      <p class="footer-tagline">The only software built specifically for prevailing wage and apprenticeship tracking.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Platform</p>
+      <ul class="footer-links">
+        <li><a href="pivla-platform.html">Platform Overview</a></li>
+        <li><a href="pivla-solution.html">Solution</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Resources</p>
+      <ul class="footer-links">
+        <li><a href="https://blog.pivla.com">Blog</a></li>
+        <li><a href="#">PW&A Compliance</a></li>
+        <li><a href="#">Certified Payroll Guide</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Company</p>
+      <ul class="footer-links">
+        <li><a href="pivla-about.html">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Pivla. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.industry-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

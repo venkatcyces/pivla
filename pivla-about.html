@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pivla – About Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d7a4f;
+    --green-light: #3a9963;
+    --green-pale: #e8f5ee;
+    --accent: #a6d71c;
+    --dark: #0d1a12;
+    --dark-mid: #142019;
+    --cream: #f6f4ef;
+    --text-body: #2c3e35;
+    --text-muted: #6b8070;
+    --border: rgba(45,122,79,0.15);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-body); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    background: rgba(246,244,239,0.88); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-weight: 800; font-size: 1.5rem; color: var(--green); letter-spacing: -0.03em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .nav-logo-mark { width: 32px; height: 32px; background: var(--green); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-body); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+  .nav-links a:hover, .nav-links a.active { color: var(--green); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-cta { background: var(--green); color: white !important; padding: 10px 22px; border-radius: 6px; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.15s !important; }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--green-light) !important; transform: translateY(-1px); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding: 160px 80px 120px;
+    background: var(--dark); position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 50% 100%, rgba(45,122,79,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(166,215,28,0.05) 0%, transparent 60%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+    opacity: 0.35;
+  }
+  .page-hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
+  .page-eyebrow-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+  .page-h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; color: white; line-height: 1.06; margin-bottom: 24px; animation: fadeUp 0.6s ease both; }
+  .page-h1 em { font-style: normal; color: var(--accent); }
+  .page-sub { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 600px; margin: 0 auto; animation: fadeUp 0.6s 0.1s ease both; }
+
+  /* SECTION SHARED */
+  .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--green); border-radius: 2px; }
+  .section-h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); line-height: 1.1; }
+  .section-lead { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-top: 12px; }
+
+  /* MISSION */
+  .mission { padding: 100px 80px; background: var(--cream); }
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .mission-text {}
+  .mission-body { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; margin-top: 24px; }
+  .mission-body + .mission-body { margin-top: 16px; }
+
+  .mission-visual {
+    background: var(--dark); border-radius: 24px; padding: 48px;
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative; overflow: hidden;
+  }
+  .mission-visual::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--accent));
+  }
+  .mv-quote {
+    font-size: 1.2rem; font-weight: 500; color: white; line-height: 1.6;
+    font-style: italic; margin-bottom: 32px;
+    position: relative; padding-left: 20px;
+  }
+  .mv-quote::before {
+    content: '';
+    position: absolute; left: 0; top: 4px; bottom: 4px;
+    width: 3px; background: var(--accent); border-radius: 2px;
+  }
+  .mv-values { display: flex; flex-direction: column; gap: 16px; }
+  .mv-val { display: flex; align-items: center; gap: 14px; }
+  .mv-val-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(166,215,28,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .mv-val-icon svg { width: 16px; height: 16px; }
+  .mv-val-text { font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.65); line-height: 1.4; }
+
+  /* VALUES */
+  .values { padding: 100px 80px; background: var(--dark); position: relative; overflow: hidden; }
+  .values-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(45,122,79,0.1) 0%, transparent 60%); }
+  .values-inner { position: relative; z-index: 1; }
+  .values-head { margin-bottom: 64px; }
+  .values-head .section-eyebrow { color: var(--accent); }
+  .values-head .section-eyebrow::before { background: var(--accent); }
+  .values-head .section-h2 { color: white; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .value-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; padding: 44px 36px;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .value-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--green), var(--accent));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+  }
+  .value-card:hover { border-color: rgba(166,215,28,0.2); transform: translateY(-4px); }
+  .value-card:hover::after { transform: scaleX(1); }
+  .value-num {
+    font-size: 3rem; font-weight: 800; letter-spacing: -0.05em;
+    color: rgba(166,215,28,0.15); line-height: 1; margin-bottom: 20px;
+  }
+  .value-title { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 14px; }
+  .value-desc { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.65; }
+
+  /* PARTNER */
+  .partner-section { padding: 100px 80px; background: var(--cream); }
+  .partner-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .partner-text {}
+  .partner-benefits { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+  .benefit-row {
+    display: flex; gap: 20px; padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .benefit-row:last-child { border-bottom: none; }
+  .benefit-num {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+    color: var(--accent); flex-shrink: 0; padding-top: 3px; width: 24px;
+  }
+  .benefit-content {}
+  .benefit-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .benefit-desc { font-size: 0.875rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+  .partner-aside {}
+  .aside-card {
+    background: var(--dark); border-radius: 20px; padding: 48px;
+    border: 1px solid rgba(255,255,255,0.06); position: sticky; top: 96px;
+  }
+  .aside-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+  .aside-h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; color: white; line-height: 1.2; margin-bottom: 16px; }
+  .aside-p { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 32px; }
+  .btn-accent { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 16px 28px; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; width: 100%; justify-content: center; }
+  .btn-accent:hover { opacity: 0.9; transform: translateY(-2px); }
+  .aside-guarantee {
+    margin-top: 20px; display: flex; align-items: center; gap: 10px;
+    font-size: 0.8rem; color: rgba(255,255,255,0.3); font-weight: 300;
+  }
+  .aside-guarantee svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: var(--green); padding: 100px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(255,255,255,0.06) 0%, transparent 60%);
+  }
+  .cta-final-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .cta-final-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.04em; color: white; line-height: 1.1; margin-bottom: 16px; }
+  .cta-final-p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 40px; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--green); text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 16px 32px; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; }
+  .btn-white:hover { opacity: 0.92; transform: translateY(-2px); }
+  .btn-white svg { width: 16px; height: 16px; fill: none; stroke: var(--green); stroke-width: 2; }
+
+  /* FOOTER */
+  footer { background: var(--dark); padding: 64px 80px 40px; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+  .footer-logo { font-weight: 800; font-size: 1.4rem; color: white; letter-spacing: -0.03em; display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+  .footer-tagline { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 240px; }
+  .footer-col-title { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 32px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,0.3); }
+  .footer-legal { display: flex; gap: 24px; }
+  .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--accent); }
+
+  @media (max-width: 1024px) {
+    nav { padding: 0 32px; }
+    .page-hero { padding: 130px 40px 90px; }
+    .mission, .values, .partner-section { padding: 72px 40px; }
+    .mission-grid, .partner-inner { grid-template-columns: 1fr; gap: 48px; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .cta-final { padding: 72px 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    footer { padding: 48px 40px 32px; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 110px 24px 72px; }
+    .mission, .values, .partner-section { padding: 64px 24px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .cta-final { padding: 64px 24px; }
+    footer { padding: 40px 24px 28px; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark"><svg viewBox="0 0 18 18" fill="white"><path d="M9 1L2 5v8l7 4 7-4V5L9 1z" opacity="0.9"/><path d="M9 5L5 7.5v5L9 15l4-2.5v-5L9 5z"/></svg></span>
+    Pivla
+  </a>
+  <ul class="nav-links">
+    <li><a href="pivla-platform.html">Platform</a></li>
+    <li><a href="pivla-solution.html">Solution</a></li>
+    <li><a href="pivla-about.html" class="active">Company</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="https://meetings.hubspot.com/nigel-coelho/explore-pivla" class="nav-cta">Talk to an Expert</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="page-hero-inner">
+    <p class="page-eyebrow"><span class="page-eyebrow-dot"></span>Our Company</p>
+    <h1 class="page-h1">Revolutionizing<br><em>PW&A Compliance</em></h1>
+    <p class="page-sub">At Pivla, we believe compliance should be a seamless, stress-free process — not a burden. We empower contractors, CPA firms, and property owners to navigate complexity with confidence.</p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-grid">
+    <div class="mission-text">
+      <p class="section-eyebrow">Our Mission</p>
+      <h2 class="section-h2">Compliance that empowers, not burdens</h2>
+      <p class="mission-body">Our mission is to provide an all-in-one compliance platform that helps businesses navigate the complexities of regulations, minimize risk, and ensure peace of mind.</p>
+      <p class="mission-body">We strive to deliver tools that are not just effective but also easy to use — so that our clients can focus on what matters most: building and serving their communities.</p>
+    </div>
+    <div class="mission-visual">
+      <p class="mv-quote">"Compliance should be a seamless, stress-free process — not a burden that slows you down."</p>
+      <div class="mv-values">
+        <div class="mv-val">
+          <div class="mv-val-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="3 8 6 11 13 5"/></svg></div>
+          <div class="mv-val-text">All-in-one compliance platform for PW&A requirements</div>
+        </div>
+        <div class="mv-val">
+          <div class="mv-val-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="3 8 6 11 13 5"/></svg></div>
+          <div class="mv-val-text">Minimizes risk and ensures regulatory peace of mind</div>
+        </div>
+        <div class="mv-val">
+          <div class="mv-val-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="3 8 6 11 13 5"/></svg></div>
+          <div class="mv-val-text">Easy to use tools so you can focus on your core business</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-bg"></div>
+  <div class="values-inner">
+    <div class="values-head">
+      <p class="section-eyebrow">What We Stand For</p>
+      <h2 class="section-h2" style="color:white;">Built on three core commitments</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <div class="value-title">Expert Guidance</div>
+        <div class="value-desc">Unparalleled expertise and guidance to help you overcome regulatory hurdles and achieve your goals. We know PW&A compliance inside and out — so you don't have to.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <div class="value-title">Operational Efficiency</div>
+        <div class="value-desc">We enable you to streamline your operations, reducing the risk of costly errors while dramatically increasing team efficiency. Less admin, more building.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <div class="value-title">Enhanced Success</div>
+        <div class="value-desc">You can confidently meet compliance requirements and focus on achieving your core business objectives. With Pivla, success isn't just possible — it's the expectation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="partner-section">
+  <div class="partner-inner">
+    <div class="partner-text">
+      <p class="section-eyebrow">Partner with Pivla</p>
+      <h2 class="section-h2">A trusted ally, not just a tool</h2>
+      <p class="section-lead">Choosing Pivla means selecting a trusted partner that navigates the complexities of regulatory and legal challenges — ensuring your path to success is clear and obstacle-free.</p>
+      <div class="partner-benefits">
+        <div class="benefit-row">
+          <div class="benefit-num">01</div>
+          <div class="benefit-content">
+            <div class="benefit-title">Built exclusively for PW&A</div>
+            <div class="benefit-desc">Unlike general HR or payroll tools, Pivla is purpose-built for prevailing wage and apprenticeship compliance — with none of the bloat and all of the specificity your projects need.</div>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-num">02</div>
+          <div class="benefit-content">
+            <div class="benefit-title">Always up to date</div>
+            <div class="benefit-desc">Labor laws change. Our platform syncs with federal and state databases in real-time so you're never caught off guard by a regulation update or wage determination change.</div>
+          </div>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-num">03</div>
+          <div class="benefit-content">
+            <div class="benefit-title">Committed to your community</div>
+            <div class="benefit-desc">We believe in the work our clients do — building infrastructure, powering communities, and creating skilled jobs. We're in this mission with you.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="partner-aside">
+      <div class="aside-card">
+        <div class="aside-eyebrow">Talk to an Expert</div>
+        <h3 class="aside-h3">Join businesses that trust Pivla to keep them compliant</h3>
+        <p class="aside-p">Join the growing number of businesses that trust us to keep them compliant, confident, and ready for whatever the industry throws their way.</p>
+        <a href="https://meetings.hubspot.com/nigel-coelho/explore-pivla" class="btn-accent">
+          Schedule Now
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <div class="aside-guarantee">
+          <svg viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"><path d="M7 1L2 3v5c0 3 2.5 4.5 5 5.5 2.5-1 5-2.5 5-5.5V3L7 1z"/></svg>
+          No commitment required. Explore with no pressure.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <h2 class="cta-final-h2">Talk to a PW&A Expert</h2>
+    <p class="cta-final-p">Join the growing number of businesses that trust us to keep them compliant, confident, and ready for whatever the industry throws their way.</p>
+    <a href="https://meetings.hubspot.com/nigel-coelho/explore-pivla" class="btn-white">
+      Schedule Now
+      <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">
+        <span class="nav-logo-mark" style="width:28px;height:28px;"><svg viewBox="0 0 18 18" width="16" height="16" fill="white"><path d="M9 1L2 5v8l7 4 7-4V5L9 1z" opacity="0.9"/><path d="M9 5L5 7.5v5L9 15l4-2.5v-5L9 5z"/></svg></span>
+        Pivla
+      </a>
+      <p class="footer-tagline">The only software built specifically for prevailing wage and apprenticeship tracking.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Platform</p>
+      <ul class="footer-links">
+        <li><a href="pivla-platform.html">Platform Overview</a></li>
+        <li><a href="pivla-solution.html">Solution</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Resources</p>
+      <ul class="footer-links">
+        <li><a href="https://blog.pivla.com">Blog</a></li>
+        <li><a href="#">PW&A Compliance</a></li>
+        <li><a href="#">Certified Payroll Guide</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Company</p>
+      <ul class="footer-links">
+        <li><a href="pivla-about.html">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Pivla. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
