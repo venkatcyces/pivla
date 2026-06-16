@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pivla – About Us</title>
+<title>Compliance in Construction – Pivla</title>
+<meta name="description" content="Pivla offers the only software tailored for construction compliance, focusing on prevailing wage and apprenticeship tracking. Automate payroll, ensure legal compliance, and streamline reporting.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -19,11 +20,12 @@
     --text-muted: #6b8070;
     --border: rgba(45,122,79,0.15);
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-body); overflow-x: hidden; }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -58,24 +60,23 @@
   .nav-dropdown a { display: block; padding: 12px 20px; color: var(--text-body); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: background 0.2s, color 0.2s; }
   .nav-dropdown a:hover { background: rgba(45,122,79,0.06); color: var(--green); }
   .nav-dropdown a.active { font-weight: 700; }
-  .nav-cta { background: var(--green); color: white !important; padding: 10px 22px; border-radius: 6px; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.15s !important; }
+  .nav-cta { background: var(--green) !important; color: white !important; padding: 10px 22px; border-radius: 6px; font-weight: 500 !important; font-size: 0.875rem !important; transition: background 0.2s, transform 0.15s !important; }
   .nav-cta::after { display: none !important; }
   .nav-cta:hover { background: var(--green-light) !important; transform: translateY(-1px); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
 
-  /* PAGE HERO */
+  /* ── PAGE HERO ── */
   .page-hero {
-    padding: 160px 80px 120px;
+    padding: 152px 80px 100px;
     background: var(--dark); position: relative; overflow: hidden;
-    text-align: center;
   }
   .page-hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at 50% 100%, rgba(45,122,79,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(166,215,28,0.05) 0%, transparent 60%);
+      radial-gradient(ellipse 55% 70% at 100% 60%, rgba(45,122,79,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 50% at 0% 100%, rgba(166,215,28,0.06) 0%, transparent 60%);
   }
   .hero-grid-lines {
     position: absolute; inset: 0; pointer-events: none;
@@ -84,133 +85,189 @@
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
     opacity: 0.35;
   }
-  .page-hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-  .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
+  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; }
+  .hero-left {}
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
   .page-eyebrow-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
-  .page-h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; color: white; line-height: 1.06; margin-bottom: 24px; animation: fadeUp 0.6s ease both; }
+  .page-h1 { font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 800; letter-spacing: -0.04em; color: white; line-height: 1.07; margin-bottom: 20px; animation: fadeUp 0.6s ease both; }
   .page-h1 em { font-style: normal; color: var(--accent); }
-  .page-sub { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 600px; margin: 0 auto; animation: fadeUp 0.6s 0.1s ease both; }
+  .page-sub { font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 520px; margin-bottom: 36px; animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-cta-row { display: flex; align-items: center; gap: 16px; animation: fadeUp 0.6s 0.2s ease both; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--green); color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 14px 28px; border-radius: 8px; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(45,122,79,0.35); }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45,122,79,0.45); }
+  .btn-primary svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.6); text-decoration: none; font-weight: 400; font-size: 0.9rem; padding: 14px 0; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--accent); }
+  .btn-ghost svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-  /* SECTION SHARED */
+  /* Hero right — stat cluster */
+  .hero-stats {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; padding: 36px 32px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    background-color: rgba(255,255,255,0.03);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat {
+    padding: 28px 24px;
+    background: rgba(255,255,255,0.03);
+    position: relative;
+  }
+  .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+  .hero-stat-num { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.05em; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+  .hero-stat-label { font-size: 0.82rem; font-weight: 300; color: rgba(255,255,255,0.4); line-height: 1.45; }
+
+  /* ── SHARED SECTION STYLES ── */
   .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--green); border-radius: 2px; }
+  .section-eyebrow.light { color: var(--accent); }
+  .section-eyebrow.light::before { background: var(--accent); }
   .section-h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); line-height: 1.1; }
+  .section-h2.light { color: white; }
   .section-lead { font-size: 1rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-top: 12px; }
+  .section-lead.light { color: rgba(255,255,255,0.5); }
 
-  /* MISSION */
-  .mission { padding: 100px 80px; background: var(--cream); }
-  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .mission-text {}
-  .mission-body { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.75; margin-top: 24px; }
-  .mission-body + .mission-body { margin-top: 16px; }
+  /* ── INTRO / OVERVIEW ── */
+  .intro-section { padding: 100px 80px; background: var(--cream); }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .intro-body { font-size: 1.05rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+  .intro-body + .intro-body { margin-top: 18px; }
+  .intro-body strong { font-weight: 600; color: var(--text-body); }
 
-  .mission-visual {
-    background: var(--dark); border-radius: 24px; padding: 48px;
-    border: 1px solid rgba(255,255,255,0.06);
+  .intro-callout {
+    background: var(--dark); border-radius: 20px; padding: 40px;
+    border: 1px solid rgba(255,255,255,0.05);
     position: relative; overflow: hidden;
   }
-  .mission-visual::before {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--green), var(--accent));
-  }
-  .mv-quote {
-    font-size: 1.2rem; font-weight: 500; color: white; line-height: 1.6;
-    font-style: italic; margin-bottom: 32px;
-    position: relative; padding-left: 20px;
-  }
-  .mv-quote::before {
-    content: '';
-    position: absolute; left: 0; top: 4px; bottom: 4px;
-    width: 3px; background: var(--accent); border-radius: 2px;
-  }
-  .mv-values { display: flex; flex-direction: column; gap: 16px; }
-  .mv-val { display: flex; align-items: center; gap: 14px; }
-  .mv-val-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(166,215,28,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .mv-val-icon svg { width: 16px; height: 16px; }
-  .mv-val-text { font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.65); line-height: 1.4; }
+  .intro-callout::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--accent)); }
+  .callout-quote { font-size: 1.1rem; font-weight: 500; color: white; line-height: 1.65; font-style: italic; padding-left: 18px; border-left: 3px solid var(--accent); margin-bottom: 28px; }
+  .callout-items { display: flex; flex-direction: column; gap: 14px; }
+  .callout-item { display: flex; align-items: center; gap: 12px; }
+  .callout-item-icon { width: 28px; height: 28px; border-radius: 6px; background: rgba(166,215,28,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .callout-item-icon svg { width: 13px; height: 13px; }
+  .callout-item-text { font-size: 0.875rem; font-weight: 400; color: rgba(255,255,255,0.6); line-height: 1.45; }
 
-  /* VALUES */
-  .values { padding: 100px 80px; background: var(--dark); position: relative; overflow: hidden; }
-  .values-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(45,122,79,0.1) 0%, transparent 60%); }
-  .values-inner { position: relative; z-index: 1; }
-  .values-head { margin-bottom: 64px; }
-  .values-head .section-eyebrow { color: var(--accent); }
-  .values-head .section-eyebrow::before { background: var(--accent); }
-  .values-head .section-h2 { color: white; }
-  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .value-card {
+  /* ── KEY TOPICS GRID ── */
+  .topics-section { padding: 100px 80px; background: var(--dark); position: relative; overflow: hidden; }
+  .topics-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 65% at 100% 50%, rgba(45,122,79,0.1) 0%, transparent 60%); }
+  .topics-inner { position: relative; z-index: 1; }
+  .topics-head { max-width: 560px; margin-bottom: 60px; }
+  .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+  .topic-card {
+    background: var(--dark-mid); padding: 40px 32px;
+    transition: background 0.25s; position: relative; overflow: hidden;
+  }
+  .topic-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .topic-card:hover { background: rgba(45,122,79,0.08); }
+  .topic-card:hover::before { transform: scaleX(1); }
+  .topic-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(166,215,28,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .topic-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .topic-title { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .topic-desc { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+  /* ── DEEP DIVE ARTICLES ── */
+  .articles-section { padding: 100px 80px; background: var(--cream); }
+  .articles-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 64px; }
+  .articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+  .article-card {
+    background: white; padding: 44px 40px;
+    position: relative; overflow: hidden; transition: background 0.25s;
+  }
+  .article-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green), var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .article-card:hover { background: #fafdf8; }
+  .article-card:hover::before { transform: scaleX(1); }
+  .article-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--green-pale); color: var(--green); border-radius: 100px; padding: 4px 12px; margin-bottom: 18px; }
+  .article-title { font-size: 1.15rem; font-weight: 700; color: var(--dark); letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.3; }
+  .article-body { font-size: 0.875rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; }
+  .article-body + .article-body { margin-top: 12px; }
+  .article-body strong { font-weight: 600; color: var(--text-body); }
+
+  /* ── CONSEQUENCES / RISK SECTION ── */
+  .risk-section { padding: 100px 80px; background: var(--dark); position: relative; overflow: hidden; }
+  .risk-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 0% 50%, rgba(45,122,79,0.1) 0%, transparent 60%); }
+  .risk-inner { position: relative; z-index: 1; }
+  .risk-grid-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .risk-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+  .risk-row { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); flex-shrink: 0; padding-top: 2px; min-width: 20px; }
+  .risk-content-title { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 5px; }
+  .risk-content-desc { font-size: 0.845rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+  .risk-visual {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px; padding: 44px 36px;
-    transition: border-color 0.25s, transform 0.25s;
+    border-radius: 20px; padding: 40px 36px;
     position: relative; overflow: hidden;
   }
-  .value-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--green), var(--accent));
-    transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
-  }
-  .value-card:hover { border-color: rgba(166,215,28,0.2); transform: translateY(-4px); }
-  .value-card:hover::after { transform: scaleX(1); }
-  .value-num {
-    font-size: 3rem; font-weight: 800; letter-spacing: -0.05em;
-    color: rgba(166,215,28,0.15); line-height: 1; margin-bottom: 20px;
-  }
-  .value-title { font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 14px; }
-  .value-desc { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.65; }
+  .risk-visual-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 28px; }
+  .risk-stat-big { font-size: 4rem; font-weight: 800; letter-spacing: -0.06em; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+  .risk-stat-caption { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.5; margin-bottom: 36px; }
+  .risk-pill-list { display: flex; flex-direction: column; gap: 12px; }
+  .risk-pill { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 14px 16px; }
+  .risk-pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .risk-pill-text { font-size: 0.845rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
-  /* PARTNER */
-  .partner-section { padding: 100px 80px; background: var(--cream); }
-  .partner-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .partner-text {}
-  .partner-benefits { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
-  .benefit-row {
-    display: flex; gap: 20px; padding: 28px 0;
-    border-bottom: 1px solid var(--border);
+  /* ── HOW PIVLA HELPS ── */
+  .pivla-section { padding: 100px 80px; background: var(--cream); }
+  .pivla-head { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+  .pivla-head .section-eyebrow { justify-content: center; }
+  .pivla-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pivla-card {
+    background: white; border: 1px solid var(--border); border-radius: 20px;
+    padding: 40px 32px; transition: transform 0.25s, box-shadow 0.25s;
+    position: relative; overflow: hidden;
   }
-  .benefit-row:last-child { border-bottom: none; }
-  .benefit-num {
-    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
-    color: var(--accent); flex-shrink: 0; padding-top: 3px; width: 24px;
-  }
-  .benefit-content {}
-  .benefit-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-  .benefit-desc { font-size: 0.875rem; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+  .pivla-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+  .pivla-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+  .pivla-card:hover::after { transform: scaleX(1); }
+  .pivla-card-icon { width: 52px; height: 52px; border-radius: 13px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+  .pivla-card-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--green); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .pivla-card-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); letter-spacing: -0.01em; margin-bottom: 12px; }
+  .pivla-card-desc { font-size: 0.875rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
 
-  .partner-aside {}
-  .aside-card {
-    background: var(--dark); border-radius: 20px; padding: 48px;
-    border: 1px solid rgba(255,255,255,0.06); position: sticky; top: 96px;
-  }
-  .aside-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
-  .aside-h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; color: white; line-height: 1.2; margin-bottom: 16px; }
-  .aside-p { font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 32px; }
-  .btn-accent { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--dark); text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 16px 28px; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; width: 100%; justify-content: center; }
-  .btn-accent:hover { opacity: 0.9; transform: translateY(-2px); }
-  .aside-guarantee {
-    margin-top: 20px; display: flex; align-items: center; gap: 10px;
-    font-size: 0.8rem; color: rgba(255,255,255,0.3); font-weight: 300;
-  }
-  .aside-guarantee svg { width: 14px; height: 14px; flex-shrink: 0; }
+  /* ── ARTICLE FULL CONTENT ── */
+  .content-section { padding: 100px 80px; background: white; }
+  .content-layout { max-width: 780px; }
 
-  /* CTA FINAL */
-  .cta-final {
-    background: var(--green); padding: 100px 80px; text-align: center; position: relative; overflow: hidden;
-  }
-  .cta-final::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(255,255,255,0.06) 0%, transparent 60%);
-  }
-  .cta-final-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
-  .cta-final-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.04em; color: white; line-height: 1.1; margin-bottom: 16px; }
-  .cta-final-p { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 40px; }
-  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--green); text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 16px 32px; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; }
-  .btn-white:hover { opacity: 0.92; transform: translateY(-2px); }
-  .btn-white svg { width: 16px; height: 16px; fill: none; stroke: var(--green); stroke-width: 2; }
+  .article-content {}
+  .article-section { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+  .article-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .article-section-h3 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.025em; color: var(--dark); margin-bottom: 16px; line-height: 1.2; scroll-margin-top: 96px; }
+  .article-section-body { font-size: 0.95rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; }
+  .article-section-body + .article-section-body { margin-top: 14px; }
+  .article-section-body strong { font-weight: 600; color: var(--text-body); }
+  .article-section-body a { color: var(--green); text-decoration: none; border-bottom: 1px solid rgba(45,122,79,0.3); transition: border-color 0.2s; }
+  .article-section-body a:hover { border-color: var(--green); }
 
-  /* FOOTER */
+  .inline-highlight {
+    background: var(--green-pale); border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0;
+    font-size: 0.9rem; font-weight: 400; color: var(--text-body); line-height: 1.6;
+  }
+
+  .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+  .bullet-list li { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); padding-left: 18px; position: relative; line-height: 1.6; }
+  .bullet-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+  .bullet-list li strong { font-weight: 600; color: var(--text-body); }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    background: var(--green); padding: 72px 80px;
+    display: flex; align-items: center; justify-content: space-between; gap: 48px;
+    position: relative; overflow: hidden;
+  }
+  .cta-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 120%, rgba(255,255,255,0.07) 0%, transparent 60%); }
+  .cta-strip-text { position: relative; z-index: 1; }
+  .cta-strip-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+  .cta-strip-h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; color: white; line-height: 1.15; }
+  .cta-strip-actions { position: relative; z-index: 1; flex-shrink: 0; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--green); text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 14px 28px; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; }
+  .btn-white:hover { opacity: 0.92; transform: translateY(-1px); }
+  .btn-white svg { width: 14px; height: 14px; fill: none; stroke: var(--green); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ── FOOTER ── */
   footer { background: var(--dark); padding: 64px 80px 40px; }
   .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
   .footer-logo { font-weight: 800; font-size: 1.4rem; color: white; letter-spacing: -0.03em; display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; max-height: 48px; }
@@ -226,25 +283,34 @@
   .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
   .footer-legal a:hover { color: var(--accent); }
 
+  /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     nav { padding: 0 32px; }
-    .page-hero { padding: 130px 40px 90px; }
-    .mission, .values, .partner-section { padding: 72px 40px; }
-    .mission-grid, .partner-inner { grid-template-columns: 1fr; gap: 48px; }
-    .values-grid { grid-template-columns: 1fr 1fr; }
-    .cta-final { padding: 72px 40px; }
+    .page-hero { padding: 120px 40px 72px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-stats { max-width: 480px; }
+    .intro-section, .topics-section, .articles-section, .risk-section, .pivla-section, .content-section { padding: 72px 40px; }
+    .intro-grid { grid-template-columns: 1fr; gap: 48px; }
+    .topics-grid { grid-template-columns: 1fr 1fr; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .risk-grid-layout { grid-template-columns: 1fr; gap: 48px; }
+    .pivla-features { grid-template-columns: 1fr 1fr; }
+    .cta-strip { padding: 56px 40px; flex-direction: column; align-items: flex-start; }
     .footer-top { grid-template-columns: 1fr 1fr; }
     footer { padding: 48px 40px 32px; }
+    .articles-head { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .page-hero { padding: 110px 24px 72px; }
-    .mission, .values, .partner-section { padding: 64px 24px; }
-    .values-grid { grid-template-columns: 1fr; }
-    .cta-final { padding: 64px 24px; }
-    footer { padding: 40px 24px 28px; }
+    .page-hero { padding: 110px 24px 60px; }
+    .intro-section, .topics-section, .articles-section, .risk-section, .pivla-section, .content-section { padding: 64px 24px; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .pivla-features { grid-template-columns: 1fr; }
+    .cta-strip { padding: 48px 24px; }
     .footer-top { grid-template-columns: 1fr; }
+    footer { padding: 40px 24px 28px; }
     .footer-bottom { flex-direction: column; gap: 16px; }
   }
   .fillout-modal-overlay {
@@ -315,9 +381,9 @@
   <ul class="nav-links">
     <li><a href="pivla-platform.html">Platform</a></li>
     <li><a href="pivla-solution.html">Solution</a></li>
-    <li><a href="pivla-about.html" class="active">Company</a></li>
+    <li><a href="pivla-about.html">Company</a></li>
     <li class="nav-item">
-      <a href="#" class="nav-dropdown-toggle">Resources <span aria-hidden="true">▾</span></a>
+      <a href="#" class="nav-dropdown-toggle active">Resources <span aria-hidden="true">▾</span></a>
       <ul class="nav-dropdown">
         <li><a href="certified-payroll.html">Certified Payroll</a></li>
         <li><a href="compliance-in-constrction.html">Compliance in Construction</a></li>
@@ -333,130 +399,419 @@
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="hero-grid-lines"></div>
-  <div class="page-hero-inner">
-    <p class="page-eyebrow"><span class="page-eyebrow-dot"></span>Our Company</p>
-    <h1 class="page-h1">Revolutionizing<br><em>PW&A Compliance</em></h1>
-    <p class="page-sub">At Pivla, we believe compliance should be a seamless, stress-free process — not a burden. We empower contractors, CPA firms, and property owners to navigate complexity with confidence.</p>
-  </div>
-</section>
-
-<!-- MISSION -->
-<section class="mission">
-  <div class="mission-grid">
-    <div class="mission-text">
-      <p class="section-eyebrow">Our Mission</p>
-      <h2 class="section-h2">Compliance that empowers, not burdens</h2>
-      <p class="mission-body">Our mission is to provide an all-in-one compliance platform that helps businesses navigate the complexities of regulations, minimize risk, and ensure peace of mind.</p>
-      <p class="mission-body">We strive to deliver tools that are not just effective but also easy to use — so that our clients can focus on what matters most: building and serving their communities.</p>
-    </div>
-    <div class="mission-visual">
-      <p class="mv-quote">"Compliance should be a seamless, stress-free process — not a burden that slows you down."</p>
-      <div class="mv-values">
-        <div class="mv-val">
-          <div class="mv-val-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="3 8 6 11 13 5"/></svg></div>
-          <div class="mv-val-text">All-in-one compliance platform for PW&A requirements</div>
-        </div>
-        <div class="mv-val">
-          <div class="mv-val-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="3 8 6 11 13 5"/></svg></div>
-          <div class="mv-val-text">Minimizes risk and ensures regulatory peace of mind</div>
-        </div>
-        <div class="mv-val">
-          <div class="mv-val-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="3 8 6 11 13 5"/></svg></div>
-          <div class="mv-val-text">Easy to use tools so you can focus on your core business</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VALUES -->
-<section class="values">
-  <div class="values-bg"></div>
-  <div class="values-inner">
-    <div class="values-head">
-      <p class="section-eyebrow">What We Stand For</p>
-      <h2 class="section-h2" style="color:white;">Built on three core commitments</h2>
-    </div>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-num">01</div>
-        <div class="value-title">Expert Guidance</div>
-        <div class="value-desc">Unparalleled expertise and guidance to help you overcome regulatory hurdles and achieve your goals. We know PW&A compliance inside and out — so you don't have to.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">02</div>
-        <div class="value-title">Operational Efficiency</div>
-        <div class="value-desc">We enable you to streamline your operations, reducing the risk of costly errors while dramatically increasing team efficiency. Less admin, more building.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">03</div>
-        <div class="value-title">Enhanced Success</div>
-        <div class="value-desc">You can confidently meet compliance requirements and focus on achieving your core business objectives. With Pivla, success isn't just possible — it's the expectation.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNER -->
-<section class="partner-section">
-  <div class="partner-inner">
-    <div class="partner-text">
-      <p class="section-eyebrow">Partner with Pivla</p>
-      <h2 class="section-h2">A trusted ally, not just a tool</h2>
-      <p class="section-lead">Choosing Pivla means selecting a trusted partner that navigates the complexities of regulatory and legal challenges — ensuring your path to success is clear and obstacle-free.</p>
-      <div class="partner-benefits">
-        <div class="benefit-row">
-          <div class="benefit-num">01</div>
-          <div class="benefit-content">
-            <div class="benefit-title">Built exclusively for PW&A</div>
-            <div class="benefit-desc">Unlike general HR or payroll tools, Pivla is purpose-built for prevailing wage and apprenticeship compliance — with none of the bloat and all of the specificity your projects need.</div>
-          </div>
-        </div>
-        <div class="benefit-row">
-          <div class="benefit-num">02</div>
-          <div class="benefit-content">
-            <div class="benefit-title">Always up to date</div>
-            <div class="benefit-desc">Labor laws change. Our platform syncs with federal and state databases in real-time so you're never caught off guard by a regulation update or wage determination change.</div>
-          </div>
-        </div>
-        <div class="benefit-row">
-          <div class="benefit-num">03</div>
-          <div class="benefit-content">
-            <div class="benefit-title">Committed to your community</div>
-            <div class="benefit-desc">We believe in the work our clients do — building infrastructure, powering communities, and creating skilled jobs. We're in this mission with you.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="partner-aside">
-      <div class="aside-card">
-        <div class="aside-eyebrow">Talk to an Expert</div>
-        <h3 class="aside-h3">Join businesses that trust Pivla to keep them compliant</h3>
-        <p class="aside-p">Join the growing number of businesses that trust us to keep them compliant, confident, and ready for whatever the industry throws their way.</p>
-        <a href="#" class="btn-accent fillout-trigger">
-          Schedule Now
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="page-eyebrow"><span class="page-eyebrow-dot"></span>Resource Guide</p>
+      <h1 class="page-h1">Compliance in<br><em>Construction,</em><br>Simplified.</h1>
+      <p class="page-sub">Prevailing wage laws, apprenticeship programs, building codes, payroll compliance — everything your firm needs to stay on the right side of every regulation.</p>
+      <div class="hero-cta-row">
+        <a href="#" class="btn-primary fillout-trigger">
+          Talk to an Expert
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-        <div class="aside-guarantee">
-          <svg viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"><path d="M7 1L2 3v5c0 3 2.5 4.5 5 5.5 2.5-1 5-2.5 5-5.5V3L7 1z"/></svg>
-          No commitment required. Explore with no pressure.
+        <a href="#deep-dive" class="btn-ghost">
+          Read the guide
+          <svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">$1.2B</div>
+        <div class="hero-stat-label">In annual wage violation fines issued to US contractors</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">50+</div>
+        <div class="hero-stat-label">Unique state wage law jurisdictions to navigate</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">30%</div>
+        <div class="hero-stat-label">Of projects delayed by compliance-related issues</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Compliance achievable with the right platform</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / OVERVIEW -->
+<section class="intro-section">
+  <div class="intro-grid">
+    <div>
+      <p class="section-eyebrow">The Challenge</p>
+      <h2 class="section-h2">Why compliance is the hardest part of running a construction firm</h2>
+      <p class="intro-body" style="margin-top:20px;">In construction, compliance isn't a single task — it's a continuous process that spans every phase of every project. From prevailing wage calculations and apprenticeship ratios to building codes and certified payroll submissions, the regulatory landscape is vast, ever-changing, and unforgiving of mistakes.</p>
+      <p class="intro-body">For accountants, compliance managers, and firm owners, managing this manually means repetitive work, costly errors, and constant exposure to penalties. <strong>Technology changes that equation entirely.</strong></p>
+      <p class="intro-body">This guide covers the full spectrum of construction compliance — and shows how purpose-built software like Pivla turns regulatory complexity into a competitive advantage.</p>
+    </div>
+    <div class="intro-callout">
+      <p class="callout-quote">"Compliance should be a seamless, stress-free process — not a burden that slows you down or puts your contracts at risk."</p>
+      <div class="callout-items">
+        <div class="callout-item">
+          <div class="callout-item-icon"><svg viewBox="0 0 13 13" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="2 7 5 10 11 4"/></svg></div>
+          <span class="callout-item-text">All-in-one platform for PW&amp;A compliance requirements</span>
+        </div>
+        <div class="callout-item">
+          <div class="callout-item-icon"><svg viewBox="0 0 13 13" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="2 7 5 10 11 4"/></svg></div>
+          <span class="callout-item-text">Real-time sync with federal and state wage databases</span>
+        </div>
+        <div class="callout-item">
+          <div class="callout-item-icon"><svg viewBox="0 0 13 13" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="2 7 5 10 11 4"/></svg></div>
+          <span class="callout-item-text">Automated reporting for audits, IRS, and DOL submissions</span>
+        </div>
+        <div class="callout-item">
+          <div class="callout-item-icon"><svg viewBox="0 0 13 13" fill="none" stroke="#a6d71c" stroke-width="1.5" stroke-linecap="round"><polyline points="2 7 5 10 11 4"/></svg></div>
+          <span class="callout-item-text">AI-powered risk detection — 30–60 days before audits flag issues</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="cta-final">
-  <div class="cta-final-inner">
-    <h2 class="cta-final-h2">Talk to a PW&A Expert</h2>
-    <p class="cta-final-p">Join the growing number of businesses that trust us to keep them compliant, confident, and ready for whatever the industry throws their way.</p>
+<!-- KEY TOPICS -->
+<section class="topics-section">
+  <div class="topics-bg"></div>
+  <div class="topics-inner">
+    <div class="topics-head">
+      <p class="section-eyebrow light">What's Covered</p>
+      <h2 class="section-h2 light">Six areas every construction firm must get right</h2>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <div class="topic-title">Prevailing Wage Laws</div>
+        <div class="topic-desc">Federal and state wage rates that apply to government-funded projects. Rates vary by locality, trade, and project type — and failure to comply triggers back pay and steep fines.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="topic-title">Apprenticeship Programs</div>
+        <div class="topic-desc">Mandatory labor ratios on IRA-funded and public projects. Accurate tracking of apprentice hours and participation is essential to secure tax credits and avoid penalties.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+        </div>
+        <div class="topic-title">Certified Payroll</div>
+        <div class="topic-desc">Weekly payroll reports required for public works projects, submitted to the DOL and state agencies. Manual submission is error-prone and time-consuming without automation.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="topic-title">Building Codes</div>
+        <div class="topic-desc">Structural, electrical, fire safety, and accessibility standards that govern every phase of construction. Non-compliance can halt a project entirely and invalidate insurance.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="topic-title">Safety Regulations</div>
+        <div class="topic-desc">OSHA standards and state-level safety requirements that protect workers on every job site. Violations carry immediate stop-work orders, fines, and long-term reputational damage.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <div class="topic-title">Record-Keeping &amp; Permits</div>
+        <div class="topic-desc">Licenses, permits, certifications, and audit trails must be maintained for the full IRS recapture period. Centralized digital records are essential for any serious compliance posture.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEEP DIVE ARTICLES -->
+<section class="articles-section" id="deep-dive">
+  <div class="articles-head">
+    <div>
+      <p class="section-eyebrow">Deep Dives</p>
+      <h2 class="section-h2">The details that determine your compliance</h2>
+    </div>
+    <p class="section-lead" style="margin-top:0;">Compliance isn't one conversation. Here's how each critical area works — and where firms typically get it wrong.</p>
+  </div>
+
+  <div class="articles-grid">
+    <div class="article-card">
+      <span class="article-tag">Prevailing Wage</span>
+      <div class="article-title">Understanding Prevailing Wage Laws and Their Impact</div>
+      <p class="article-body">Prevailing wage laws dictate the minimum wages paid to workers on government-funded construction projects, with rates varying by locality and trade classification. Federal rates come from the Department of Labor; state projects often have separate, higher thresholds.</p>
+      <p class="article-body"><strong>Where firms get tripped up:</strong> multi-jurisdiction projects where different wage rates apply to the same crew on different days. Payroll software must accommodate rate changes automatically — manual adjustment is a liability.</p>
+    </div>
+    <div class="article-card">
+      <span class="article-tag">Apprenticeship</span>
+      <div class="article-title">The Role of Apprenticeship Programs in Compliance</div>
+      <p class="article-body">IRA tax credit projects require that a minimum percentage of labor hours are performed by registered apprentices. The ratio requirements apply across all contractors and subcontractors on a covered project — not just the prime.</p>
+      <p class="article-body"><strong>The documentation burden:</strong> apprentice participation must be tracked at the worker level, with hours logged and ratios verified against each wage determination. Time tracking software handles this automatically.</p>
+    </div>
+    <div class="article-card">
+      <span class="article-tag">Payroll Operations</span>
+      <div class="article-title">Construction Payroll Software: Managing Complex Requirements</div>
+      <p class="article-body">Construction payroll is fundamentally different from standard payroll. A single worker may have different classifications, wage rates, and fringe benefit obligations across multiple projects on the same day. Union agreements, shift differentials, and overtime rules compound the complexity.</p>
+      <p class="article-body"><strong>Automation is essential:</strong> purpose-built software handles varying wage rates, subcontractor payroll, fringe benefit calculations, and certified payroll submissions — all from a single dashboard.</p>
+    </div>
+    <div class="article-card">
+      <span class="article-tag">Technology</span>
+      <div class="article-title">The Benefits of Automation in Compliance Processes</div>
+      <p class="article-body">Automation eliminates the most common source of compliance failures: human error in repetitive data entry. When wage rates, apprentice ratios, and payroll calculations are handled by software, the margin for costly mistakes drops to near zero.</p>
+      <p class="article-body"><strong>Speed matters too:</strong> tasks that consume hours of staff time each week can be completed in minutes. That efficiency compounds across projects, freeing your team to focus on work that actually requires judgment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONSEQUENCES / RISK -->
+<section class="risk-section">
+  <div class="risk-bg"></div>
+  <div class="risk-inner">
+    <div class="risk-grid-layout">
+      <div>
+        <p class="section-eyebrow light">Non-Compliance</p>
+        <h2 class="section-h2 light">The real cost of getting it wrong</h2>
+        <p class="section-lead light" style="margin-top:16px;">Non-compliance in construction rarely stays contained. A single missed deadline or miscalculated wage can cascade into project shutdowns, legal exposure, and reputational damage that takes years to repair.</p>
+        <div class="risk-list">
+          <div class="risk-row">
+            <div class="risk-num">01</div>
+            <div>
+              <div class="risk-content-title">Financial Penalties &amp; Back Pay</div>
+              <div class="risk-content-desc">Wage violations trigger mandatory back pay plus penalties up to double the underpayment amount. Davis-Bacon violations can result in debarment from future federal contracts.</div>
+            </div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-num">02</div>
+            <div>
+              <div class="risk-content-title">Project Delays &amp; Stop-Work Orders</div>
+              <div class="risk-content-desc">Regulatory agencies can halt construction immediately upon discovering violations. Every delayed day costs money across labor, equipment, and financing.</div>
+            </div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-num">03</div>
+            <div>
+              <div class="risk-content-title">Reputational Damage</div>
+              <div class="risk-content-desc">Compliance failures become public record. Loss of contractor credentials, negative publicity, and damaged client relationships can follow a firm for years.</div>
+            </div>
+          </div>
+          <div class="risk-row">
+            <div class="risk-num">04</div>
+            <div>
+              <div class="risk-content-title">IRA Tax Credit Clawbacks</div>
+              <div class="risk-content-desc">Failure to meet PW&amp;A requirements on IRA-funded projects results in the loss of the 30% base tax credit — leaving only the 6% alternative. The difference on a large project is enormous.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-visual">
+        <div class="risk-visual-label">What's at stake on a single project</div>
+        <div class="risk-stat-big">24%</div>
+        <p class="risk-stat-caption">of the IRA investment tax credit is at risk if PW&amp;A requirements aren't met — the difference between 30% and 6% credit rates.</p>
+        <div class="risk-pill-list">
+          <div class="risk-pill">
+            <div class="risk-pill-dot"></div>
+            <div class="risk-pill-text">Underpaid wages must be repaid with interest — often years after project completion</div>
+          </div>
+          <div class="risk-pill">
+            <div class="risk-pill-dot"></div>
+            <div class="risk-pill-text">OSHA penalties up to $16,131 per serious violation, $161,323 for willful or repeated</div>
+          </div>
+          <div class="risk-pill">
+            <div class="risk-pill-dot"></div>
+            <div class="risk-pill-text">Federal debarment bars firms from all future government contracts for up to 3 years</div>
+          </div>
+          <div class="risk-pill">
+            <div class="risk-pill-dot"></div>
+            <div class="risk-pill-text">Litigation costs from worker disputes frequently exceed the original compliance investment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW PIVLA HELPS -->
+<section class="pivla-section">
+  <div class="pivla-head">
+    <p class="section-eyebrow">How Pivla Helps</p>
+    <h2 class="section-h2">Built for every layer of construction compliance</h2>
+    <p class="section-lead" style="margin: 12px auto 0; text-align:center;">Pivla is the only platform designed exclusively for prevailing wage and apprenticeship compliance — with every feature built around the way construction actually works.</p>
+  </div>
+  <div class="pivla-features">
+    <div class="pivla-card">
+      <div class="pivla-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <div class="pivla-card-title">Command Center</div>
+      <p class="pivla-card-desc">Live compliance dashboard covering apprentice ratios, wage determinations, and multi-site project status — with custom alerts for any gap before it becomes a penalty.</p>
+    </div>
+    <div class="pivla-card">
+      <div class="pivla-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      </div>
+      <div class="pivla-card-title">Smart Wage Calculator</div>
+      <p class="pivla-card-desc">Automatic syncing with DOL and SAM.gov databases ensures wage determinations are always current. Handles multi-jurisdiction projects, overtime, and holiday pay automatically.</p>
+    </div>
+    <div class="pivla-card">
+      <div class="pivla-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div class="pivla-card-title">Report Wizard</div>
+      <p class="pivla-card-desc">One-click certified payroll and IRS documentation — formatted and ready for submission. Encrypted audit trails maintained for the full IRS recapture period.</p>
+    </div>
+    <div class="pivla-card">
+      <div class="pivla-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5Z" fill="#2d7a4f" stroke="#2d7a4f" stroke-width="1"/><path d="M19 3L19.75 5.25L22 6L19.75 6.75L19 9L18.25 6.75L16 6L18.25 5.25Z" fill="#2d7a4f" stroke="#2d7a4f" stroke-width="0.5"/></svg>
+      </div>
+      <div class="pivla-card-title">AI Assistant</div>
+      <p class="pivla-card-desc">Plain-English answers to compliance questions, step-by-step IRA credit guidance, and machine learning that identifies audit risks 30–60 days before they surface.</p>
+    </div>
+    <div class="pivla-card">
+      <div class="pivla-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div class="pivla-card-title">Real-Time Tracking</div>
+      <p class="pivla-card-desc">Workers clock in and out from any device. Hours, classifications, and wage determinations are tracked continuously — with apprentice ratios monitored automatically across all projects.</p>
+    </div>
+    <div class="pivla-card">
+      <div class="pivla-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div class="pivla-card-title">SOC 2 Certified Security</div>
+      <p class="pivla-card-desc">256-bit AES encryption, independently audited security controls, and continuous monitoring protect every piece of sensitive payroll and compliance data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FULL ARTICLE CONTENT -->
+<section class="content-section" id="full-guide">
+  <div class="content-layout">
+
+    <!-- CONTENT -->
+    <div class="article-content">
+
+      <div class="article-section" id="toc-importance">
+        <h3 class="article-section-h3">The Importance of Compliance in Construction Projects</h3>
+        <p class="article-section-body">Compliance in construction is pivotal — it ensures projects adhere to legal and ethical standards critical to both worker safety and project success. Non-compliance leads to severe consequences: hefty fines, legal penalties, and in worst-case scenarios, project suspension or cancellation.</p>
+        <p class="article-section-body">Beyond legal implications, compliance builds trust. It assures clients and stakeholders of a project's reliability, opening doors to future contracts and partnerships. Well-executed compliance also prevents delays — legal disputes don't just cost money, they disrupt timelines across every trade on a job site.</p>
+        <div class="inline-highlight">Compliance is not a back-office function. It directly affects whether a project gets built on time, on budget, and without incident.</div>
+        <p class="article-section-body">Ultimately, compliance is synonymous with quality and reliability. Firms that prioritize it build reputations that compound over time — and firms that don't carry exposure that can surface years after a project closes.</p>
+      </div>
+
+      <div class="article-section" id="toc-pw">
+        <h3 class="article-section-h3">Understanding Prevailing Wage Laws and Their Impact</h3>
+        <p class="article-section-body">Prevailing wage laws dictate the minimum wage paid to workers on government-funded construction projects in specific localities. They ensure fair wages across trades and are enforced at both the federal level (Davis-Bacon Act) and through equivalent state statutes — many of which set higher rates than the federal floor.</p>
+        <p class="article-section-body">Applying these laws is genuinely complex. A single project may cross multiple jurisdictions, involve dozens of trade classifications, and require different rates for regular time, overtime, and fringe benefits. Payroll systems that aren't built for construction typically can't handle this without manual intervention — which is where errors occur.</p>
+        <ul class="bullet-list">
+          <li><strong>Back pay liability:</strong> Underpaid workers are entitled to the difference, often with interest, regardless of how long ago the violation occurred.</li>
+          <li><strong>Debarment risk:</strong> Willful or repeated Davis-Bacon violations can result in multi-year bans from all federal contracting.</li>
+          <li><strong>IRA credit impact:</strong> Failure to pay prevailing wages on covered energy projects reduces the available tax credit from 30% to 6%.</li>
+        </ul>
+        <p class="article-section-body">Purpose-built payroll compliance software automates wage calculations based on current local rates, updated in real time from DOL and SAM.gov. Every payroll run is verified against current determinations before submission.</p>
+      </div>
+
+      <div class="article-section" id="toc-apprenticeship">
+        <h3 class="article-section-h3">The Role of Apprenticeship Programs in Compliance</h3>
+        <p class="article-section-body">Apprenticeship programs are not just beneficial — on many IRA-funded and government projects, they're mandatory. Projects that don't meet the required apprentice-to-journeyman ratios lose access to the enhanced investment tax credit rates, and may face additional penalties for willful non-compliance.</p>
+        <p class="article-section-body">The documentation burden is significant: apprentice hours must be tracked at the worker level across all contractors and subcontractors, with participation percentages calculated against each wage determination period. This is operationally impossible to do reliably by hand on a multi-subcontractor project.</p>
+        <p class="article-section-body">Beyond compliance, apprenticeship programs benefit the industry at large — they develop skilled labor pipelines and demonstrate commitment to workforce development. Supporting them is both a regulatory requirement and a long-term strategic investment in the quality of your crews.</p>
+      </div>
+
+      <div class="article-section" id="toc-automation">
+        <h3 class="article-section-h3">The Benefits of Automation in Compliance Processes</h3>
+        <p class="article-section-body">Automation delivers compounding advantages in compliance. It eliminates the errors that come from repetitive manual data entry — the primary cause of most compliance failures. When wage rates, apprentice ratios, and payroll calculations are handled by software that's been built for the purpose, the margin for costly mistakes drops sharply.</p>
+        <p class="article-section-body">Speed is equally important. Compliance tasks that consume half a day of staff time each week complete in minutes when automated. That efficiency scales across projects: a firm running 20 simultaneous projects gains the equivalent of significant dedicated headcount simply by automating what the software is designed to handle.</p>
+        <div class="inline-highlight">Real-time data access is the other key benefit. When compliance status is visible at any moment, issues surface early — before they become penalties.</div>
+        <p class="article-section-body">Automation also improves data security. Modern compliance software applies robust security measures and maintains structured audit trails that satisfy both internal review and external audit requirements. The system becomes your documentation, not a filing cabinet of spreadsheets.</p>
+      </div>
+
+      <div class="article-section" id="toc-payroll">
+        <h3 class="article-section-h3">Construction Payroll Software: Managing Complex Requirements</h3>
+        <p class="article-section-body">Construction payroll is fundamentally different from standard payroll. A single worker can have multiple classifications across a single day's work, different wage determinations per project, union benefits layered on top of prevailing wage fringes, and overtime calculations that span all of it. General HR and payroll platforms aren't designed for this.</p>
+        <p class="article-section-body">Construction Payroll Software handles this by design: varying wage rates across jurisdictions, subcontractor payroll coordination, fringe benefit and deduction calculations, and certified payroll report generation — all in a single system. The reporting features are particularly critical during audits and regulatory reviews, where quick access to accurate records makes the difference between a smooth inspection and a costly finding.</p>
+        <ul class="bullet-list">
+          <li><strong>Certified payroll submissions:</strong> Automated WH-347 and state-equivalent forms, formatted and ready for agency submission.</li>
+          <li><strong>Fringe benefits management:</strong> Tracks cash and non-cash fringes per classification, ensuring full credit against prevailing wage obligations.</li>
+          <li><strong>Subcontractor coordination:</strong> Centralized monitoring of sub payroll compliance with the same standards as direct employees.</li>
+          <li><strong>Audit trails:</strong> Encrypted records maintained for the full recapture period, accessible in seconds during any inspection.</li>
+        </ul>
+      </div>
+
+      <div class="article-section" id="toc-lifecycle">
+        <h3 class="article-section-h3">Regulatory Compliance Throughout the Project Lifecycle</h3>
+        <p class="article-section-body">Regulatory compliance in construction isn't a one-time task — it runs from permitting through final occupancy. Early in a project, compliance focuses on land assessments, permits, and legal feasibility. As construction begins, safety regulations and wage obligations take over. Post-completion, structures must satisfy final safety inspections and usage regulations before occupancy is approved.</p>
+        <p class="article-section-body">Each phase introduces its own compliance requirements, and missing obligations in one phase frequently creates problems in later phases. A wage error discovered post-completion can still trigger back pay claims. A permit lapse can invalidate insurance coverage on a completed structure.</p>
+        <p class="article-section-body">Regulatory compliance is also not static. Laws and codes evolve continuously — OSHA standards are updated, wage determinations are revised, and new IRA guidance arrives in waves. Staying compliant requires not just systems, but continuous vigilance and software that automatically reflects regulatory changes.</p>
+      </div>
+
+      <div class="article-section" id="toc-records">
+        <h3 class="article-section-h3">Record-Keeping, Documentation, and Permits</h3>
+        <p class="article-section-body">Meticulous record-keeping is the foundation of any defensible compliance position. During audits, comprehensive records are the difference between a clean report and a costly finding. This means contracts, safety documentation, certified payroll records, apprenticeship logs, and permit histories — all current, organized, and retrievable on demand.</p>
+        <p class="article-section-body">Construction compliance software centralizes this entirely. Rather than hunting across shared drives and email chains for the document an auditor needs, every record is accessible from a single platform. Version control ensures all stakeholders reference current documents, and digital storage eliminates the losses that plague physical record systems.</p>
+        <div class="inline-highlight">For IRA-funded projects, records must be retained for the full IRS recapture period — typically 5 years from project placed-in-service date. Manual systems routinely fail this requirement.</div>
+        <p class="article-section-body">Permit tracking is equally important. Software that monitors permit status, expiration dates, and renewal deadlines prevents the costly project delays that come from a lapsed certification discovered at the wrong moment.</p>
+      </div>
+
+      <div class="article-section" id="toc-integration">
+        <h3 class="article-section-h3">Software Integration for a Seamless Compliance Workflow</h3>
+        <p class="article-section-body">Compliance data doesn't live in isolation. Payroll information drives certified payroll submissions. Time tracking data feeds apprentice ratio calculations. Wage determinations inform payroll calculations. When these systems are siloed, data must be re-entered multiple times — multiplying the opportunity for error at each transfer.</p>
+        <p class="article-section-body">Integrated software eliminates these silos. When payroll, time tracking, compliance reporting, and accounting work from a single data set, every calculation is consistent and every report reflects the same ground truth. Integration also enables the comprehensive cross-functional reporting that makes audits significantly less stressful.</p>
+        <p class="article-section-body">For growing firms, integration also supports scalability. As project volume increases, integrated systems handle additional complexity without requiring proportional increases in administrative staff.</p>
+      </div>
+
+      <div class="article-section" id="toc-technology">
+        <h3 class="article-section-h3">Technology, Transparency, and Accountability</h3>
+        <p class="article-section-body">Technology's role in construction compliance extends beyond calculation and reporting — it fundamentally changes the accountability structure of a project. When compliance data is accessible in real time to project managers, accountants, and clients, everyone operates from the same picture. Discrepancies surface immediately rather than at the end of a pay period or during an audit.</p>
+        <p class="article-section-body">Analytics and reporting features transform raw compliance data into actionable intelligence. Dashboards highlight projects approaching ratio thresholds, wage determinations nearing expiration, and payroll submissions due in the coming days. This proactive visibility means firms address compliance gaps before they become violations.</p>
+        <p class="article-section-body">Digital audit trails also reduce the risk of fraud and misconduct. Structured records deter unauthorized changes and provide clear documentation of every decision made throughout a project's lifecycle.</p>
+      </div>
+
+      <div class="article-section" id="toc-government">
+        <h3 class="article-section-h3">Government Agencies and Enforcement</h3>
+        <p class="article-section-body">The Department of Labor, OSHA, IRS, and state labor agencies all have authority over different aspects of construction compliance — and they actively use it. The DOL's Wage and Hour Division conducts thousands of prevailing wage investigations annually. OSHA performs site inspections both randomly and in response to complaints. The IRS audits IRA tax credit claims with increasing frequency as the program matures.</p>
+        <p class="article-section-body">Proactive engagement with these agencies is possible and often beneficial. The DOL provides wage determination tools, and many state agencies offer compliance resources and pre-audit consultations. Firms that demonstrate systematic compliance processes tend to have smoother inspection outcomes than those relying on ad hoc documentation.</p>
+        <p class="article-section-body">The most effective compliance posture is one where every requirement is met as a matter of routine — not scrambled together when an investigation is initiated. Software that builds compliance into the daily workflow makes this achievable for any firm, regardless of size.</p>
+      </div>
+
+      <div class="article-section" id="toc-cloud">
+        <h3 class="article-section-h3">Cloud-Based and Mobile Solutions for Field Teams</h3>
+        <p class="article-section-body">Construction compliance happens on job sites, not just in offices. Cloud-based platforms provide real-time access to compliance data from anywhere — giving project managers in the field the same visibility as accountants at headquarters. This removes the communication delays that allow small compliance issues to become large ones.</p>
+        <p class="article-section-body">Mobile applications bring compliance tools directly to field supervisors. Workers can clock in and out from phones; supervisors can verify apprentice ratios and check wage determinations without returning to the office. This immediacy is particularly valuable on multi-site projects where personnel move between locations throughout the day.</p>
+        <p class="article-section-body">Cloud solutions also offer significant cost advantages over traditional on-premise systems — lower infrastructure costs, automatic software updates that keep compliance rules current, and no IT maintenance burden for the contractor.</p>
+      </div>
+
+      <div class="article-section" id="toc-subcontractors">
+        <h3 class="article-section-h3">Managing Subcontractor Compliance</h3>
+        <p class="article-section-body">On a large construction project, prevailing wage and apprenticeship obligations extend to every subcontractor on the job — not just the prime. This means the prime contractor is ultimately responsible for ensuring that a subcontractor three tiers down is paying the correct wage rates and maintaining proper apprentice ratios.</p>
+        <p class="article-section-body">This requires centralized visibility into subcontractor payroll practices, which is difficult without purpose-built software. Compliance platforms can extend access to subcontractors, collecting their certified payroll data into the same system — giving primes the oversight they need without requiring manual data aggregation from dozens of separate submissions.</p>
+        <p class="article-section-body">Automated reminders and deadline notifications help subcontractors meet their obligations on schedule, reducing the friction of compliance coordination across a complex project structure.</p>
+      </div>
+
+      <div class="article-section" id="toc-future">
+        <h3 class="article-section-h3">The Future of Compliance in Construction</h3>
+        <p class="article-section-body">Construction compliance is becoming more complex, not less. The Inflation Reduction Act has added a significant new layer of wage and apprenticeship requirements tied to billions in available tax credits. State-level requirements are expanding. Enforcement is increasing as agency budgets grow and digital tools make auditing more efficient.</p>
+        <p class="article-section-body">Against this backdrop, firms that embrace compliance technology now are building durable competitive advantages. They can pursue government-funded and IRA-eligible projects with confidence. They can grow their project portfolios without proportional growth in compliance overhead. And they can offer clients — and themselves — the assurance that every regulatory requirement is being met, on every project, every day.</p>
+        <div class="inline-highlight">With Lumber's acquisition of Pivla, this advantage now extends further: an AI-powered funding agent that actively identifies and unlocks compliance-linked funding opportunities — a first for the construction industry.</div>
+        <p class="article-section-body">Compliance will always require attention and judgment. But the firms that let software handle the routine — the calculations, the tracking, the reporting, the alerts — are the ones that can direct their best thinking toward building.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="cta-strip-text">
+    <div class="cta-strip-eyebrow">Get Started</div>
+    <div class="cta-strip-h2">See what compliance looks like when it just works.</div>
+  </div>
+  <div class="cta-strip-actions">
     <a href="#" class="btn-white fillout-trigger">
-      Schedule Now
-      <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Talk to an Expert
+      <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -502,7 +857,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Pivla. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Pivla Powered by <a href="https://www.lumberfi.com" style="color:rgba(255,255,255,0.4);text-decoration:none;">Lumber</a>. All rights reserved.</p>
     <div class="footer-legal">
       <a href="#">Terms of Service</a>
       <a href="#">Privacy Policy</a>
